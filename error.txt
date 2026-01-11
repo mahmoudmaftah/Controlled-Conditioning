@@ -1,0 +1,629 @@
+root@34545a27caac:/workspace/Controlled-Conditioning# ./run_experiments.sh
+[2026-01-11 22:30:35] ========================================
+[2026-01-11 22:30:35] STARTING EXPERIMENT SUITE
+[2026-01-11 22:30:35] ========================================
+[2026-01-11 22:30:35] GPU Information:
+name, memory.total [MiB], memory.free [MiB]
+NVIDIA GeForce RTX 4090, 24564 MiB, 24080 MiB
+[2026-01-11 22:30:35] Python version: Python 3.10.12
+[2026-01-11 22:30:36] PyTorch version: 2.0.0+cu118
+[2026-01-11 22:30:37] CUDA available: True
+[2026-01-11 22:30:39] CUDA device: NVIDIA GeForce RTX 4090
+  File "<string>", line 1
+    import torch; print(f\"{torch.cuda.get_device_properties(0).total_memory/1e9:.1f} GB\")
+                          ^
+SyntaxError: unexpected character after line continuation character
+[2026-01-11 22:30:39] CUDA memory: 
+[2026-01-11 22:30:39] 
+[2026-01-11 22:30:39] ========================================
+[2026-01-11 22:30:39] PHASE 1: MNIST CORE EXPERIMENTS
+[2026-01-11 22:30:39] ========================================
+[2026-01-11 22:30:39] --- 1.1 Full Model Comparison (Edge Conditioning) ---
+[2026-01-11 22:30:39] Starting: controlnet_edge_mnist
+[2026-01-11 22:30:39] Arguments: --model_type controlnet --conditioning edge --dataset mnist --epochs 10 --batch_size 128 --lr 0.0001 --timesteps 1000
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/Controlled-Conditioning/train.py", line 7, in <module>
+    from dataset import (
+  File "/workspace/Controlled-Conditioning/dataset.py", line 2, in <module>
+    import torchvision
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/__init__.py", line 17, in <module>
+    from . import detection, optical_flow, quantization, segmentation, video
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/__init__.py", line 1, in <module>
+    from .faster_rcnn import *
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/faster_rcnn.py", line 16, in <module>
+    from .anchor_utils import AnchorGenerator
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 10, in <module>
+    class AnchorGenerator(nn.Module):
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 63, in AnchorGenerator
+    device: torch.device = torch.device("cpu"),
+/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py:63: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device("cpu"),
+
+Training on cuda
+Dataset: MNIST
+Model: controlnet, Rank: 4, Inject: mid
+Conditioning: edge
+Image size: 28x28, Channels: 1
+Conditioning channels: 1, Vector: False
+Total params: 4,751,681
+Trainable params: 4,751,681
+Parameter efficiency: 100.0%
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz to ./data/MNIST/raw/train-images-idx3-ubyte.gz
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9912422/9912422 [00:01<00:00, 9380657.35it/s]
+Extracting ./data/MNIST/raw/train-images-idx3-ubyte.gz to ./data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz to ./data/MNIST/raw/train-labels-idx1-ubyte.gz
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28881/28881 [00:00<00:00, 256798.48it/s]
+Extracting ./data/MNIST/raw/train-labels-idx1-ubyte.gz to ./data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz to ./data/MNIST/raw/t10k-images-idx3-ubyte.gz
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1648877/1648877 [00:00<00:00, 2308604.59it/s]
+Extracting ./data/MNIST/raw/t10k-images-idx3-ubyte.gz to ./data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz to ./data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4542/4542 [00:00<00:00, 27098902.94it/s]
+Extracting ./data/MNIST/raw/t10k-labels-idx1-ubyte.gz to ./data/MNIST/raw
+
+Epoch 1/10:   0%|                                                                                                                                 | 0/469 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/Controlled-Conditioning/train.py", line 601, in <module>
+    train(
+  File "/workspace/Controlled-Conditioning/train.py", line 275, in train
+    for batch in pbar:
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 678, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/Controlled-Conditioning/dataset.py", line 566, in __getitem__
+    img, label = self.mnist[idx]
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/mnist.py", line 142, in __getitem__
+    img = Image.fromarray(img.numpy(), mode="L")
+RuntimeError: Numpy is not available
+[2026-01-11 22:30:56] Completed: controlnet_edge_mnist
+[2026-01-11 22:30:56] Starting: concat_edge_mnist
+[2026-01-11 22:30:56] Arguments: --model_type concat --conditioning edge --dataset mnist --epochs 10 --batch_size 128 --lr 0.0001 --timesteps 1000
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/Controlled-Conditioning/train.py", line 7, in <module>
+    from dataset import (
+  File "/workspace/Controlled-Conditioning/dataset.py", line 2, in <module>
+    import torchvision
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/__init__.py", line 17, in <module>
+    from . import detection, optical_flow, quantization, segmentation, video
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/__init__.py", line 1, in <module>
+    from .faster_rcnn import *
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/faster_rcnn.py", line 16, in <module>
+    from .anchor_utils import AnchorGenerator
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 10, in <module>
+    class AnchorGenerator(nn.Module):
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 63, in AnchorGenerator
+    device: torch.device = torch.device("cpu"),
+/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py:63: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device("cpu"),
+
+Training on cuda
+Dataset: MNIST
+Model: concat, Rank: 4, Inject: mid
+Conditioning: edge
+Image size: 28x28, Channels: 1
+Conditioning channels: 1, Vector: False
+Total params: 2,947,137
+Trainable params: 2,947,137
+Parameter efficiency: 100.0%
+Epoch 1/10:   0%|                                                                                                                                 | 0/469 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/Controlled-Conditioning/train.py", line 601, in <module>
+    train(
+  File "/workspace/Controlled-Conditioning/train.py", line 275, in train
+    for batch in pbar:
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 678, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/Controlled-Conditioning/dataset.py", line 566, in __getitem__
+    img, label = self.mnist[idx]
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/mnist.py", line 142, in __getitem__
+    img = Image.fromarray(img.numpy(), mode="L")
+RuntimeError: Numpy is not available
+[2026-01-11 22:30:58] Completed: concat_edge_mnist
+[2026-01-11 22:30:58] Starting: lora_mid_edge_mnist
+[2026-01-11 22:30:58] Arguments: --model_type lora --rank 4 --inject_layer mid --conditioning edge --dataset mnist --epochs 10 --batch_size 128 --lr 0.0001 --timesteps 1000
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/Controlled-Conditioning/train.py", line 7, in <module>
+    from dataset import (
+  File "/workspace/Controlled-Conditioning/dataset.py", line 2, in <module>
+    import torchvision
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/__init__.py", line 17, in <module>
+    from . import detection, optical_flow, quantization, segmentation, video
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/__init__.py", line 1, in <module>
+    from .faster_rcnn import *
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/faster_rcnn.py", line 16, in <module>
+    from .anchor_utils import AnchorGenerator
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 10, in <module>
+    class AnchorGenerator(nn.Module):
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 63, in AnchorGenerator
+    device: torch.device = torch.device("cpu"),
+/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py:63: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device("cpu"),
+
+Training on cuda
+Dataset: MNIST
+Model: lora, Rank: 4, Inject: mid
+Conditioning: edge
+Image size: 28x28, Channels: 1
+Conditioning channels: 1, Vector: False
+Total params: 3,040,257
+Trainable params: 3,040,257
+Parameter efficiency: 100.0%
+Epoch 1/10:   0%|                                                                                                                                 | 0/469 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/Controlled-Conditioning/train.py", line 601, in <module>
+    train(
+  File "/workspace/Controlled-Conditioning/train.py", line 275, in train
+    for batch in pbar:
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 678, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/Controlled-Conditioning/dataset.py", line 566, in __getitem__
+    img, label = self.mnist[idx]
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/mnist.py", line 142, in __getitem__
+    img = Image.fromarray(img.numpy(), mode="L")
+RuntimeError: Numpy is not available
+[2026-01-11 22:30:59] Completed: lora_mid_edge_mnist
+[2026-01-11 22:30:59] Starting: lora_all_edge_mnist
+[2026-01-11 22:30:59] Arguments: --model_type lora --rank 4 --inject_layer all --conditioning edge --dataset mnist --epochs 10 --batch_size 128 --lr 0.0001 --timesteps 1000
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/Controlled-Conditioning/train.py", line 7, in <module>
+    from dataset import (
+  File "/workspace/Controlled-Conditioning/dataset.py", line 2, in <module>
+    import torchvision
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/__init__.py", line 17, in <module>
+    from . import detection, optical_flow, quantization, segmentation, video
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/__init__.py", line 1, in <module>
+    from .faster_rcnn import *
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/faster_rcnn.py", line 16, in <module>
+    from .anchor_utils import AnchorGenerator
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 10, in <module>
+    class AnchorGenerator(nn.Module):
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 63, in AnchorGenerator
+    device: torch.device = torch.device("cpu"),
+/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py:63: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device("cpu"),
+
+Training on cuda
+Dataset: MNIST
+Model: lora, Rank: 4, Inject: all
+Conditioning: edge
+Image size: 28x28, Channels: 1
+Conditioning channels: 1, Vector: False
+Total params: 3,045,953
+Trainable params: 3,045,953
+Parameter efficiency: 100.0%
+Epoch 1/10:   0%|                                                                                                                                 | 0/469 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/Controlled-Conditioning/train.py", line 601, in <module>
+    train(
+  File "/workspace/Controlled-Conditioning/train.py", line 275, in train
+    for batch in pbar:
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 678, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/Controlled-Conditioning/dataset.py", line 566, in __getitem__
+    img, label = self.mnist[idx]
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/mnist.py", line 142, in __getitem__
+    img = Image.fromarray(img.numpy(), mode="L")
+RuntimeError: Numpy is not available
+[2026-01-11 22:31:00] Completed: lora_all_edge_mnist
+[2026-01-11 22:31:00] Starting: lora_early_edge_mnist
+[2026-01-11 22:31:00] Arguments: --model_type lora --rank 4 --inject_layer early --conditioning edge --dataset mnist --epochs 10 --batch_size 128 --lr 0.0001 --timesteps 1000
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/Controlled-Conditioning/train.py", line 7, in <module>
+    from dataset import (
+  File "/workspace/Controlled-Conditioning/dataset.py", line 2, in <module>
+    import torchvision
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/__init__.py", line 17, in <module>
+    from . import detection, optical_flow, quantization, segmentation, video
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/__init__.py", line 1, in <module>
+    from .faster_rcnn import *
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/faster_rcnn.py", line 16, in <module>
+    from .anchor_utils import AnchorGenerator
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 10, in <module>
+    class AnchorGenerator(nn.Module):
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 63, in AnchorGenerator
+    device: torch.device = torch.device("cpu"),
+/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py:63: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device("cpu"),
+
+Training on cuda
+Dataset: MNIST
+Model: lora, Rank: 4, Inject: early
+Conditioning: edge
+Image size: 28x28, Channels: 1
+Conditioning channels: 1, Vector: False
+Total params: 3,043,905
+Trainable params: 3,043,905
+Parameter efficiency: 100.0%
+Epoch 1/10:   0%|                                                                                                                                 | 0/469 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/Controlled-Conditioning/train.py", line 601, in <module>
+    train(
+  File "/workspace/Controlled-Conditioning/train.py", line 275, in train
+    for batch in pbar:
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 678, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/Controlled-Conditioning/dataset.py", line 566, in __getitem__
+    img, label = self.mnist[idx]
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/mnist.py", line 142, in __getitem__
+    img = Image.fromarray(img.numpy(), mode="L")
+RuntimeError: Numpy is not available
+[2026-01-11 22:31:02] Completed: lora_early_edge_mnist
+[2026-01-11 22:31:02] Saved experiment metadata: phase1_model_comparison_20260111_223102.json
+[2026-01-11 22:31:02] 
+[2026-01-11 22:31:02] ========================================
+[2026-01-11 22:31:02] PHASE 2: LoRA RANK ABLATION
+[2026-01-11 22:31:02] ========================================
+[2026-01-11 22:31:02] --- Rank 1 ---
+[2026-01-11 22:31:02] Starting: lora_rank1_mid_edge_mnist
+[2026-01-11 22:31:02] Arguments: --model_type lora --rank 1 --inject_layer mid --conditioning edge --dataset mnist --epochs 5 --batch_size 128 --lr 0.0001 --timesteps 1000
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/Controlled-Conditioning/train.py", line 7, in <module>
+    from dataset import (
+  File "/workspace/Controlled-Conditioning/dataset.py", line 2, in <module>
+    import torchvision
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/__init__.py", line 17, in <module>
+    from . import detection, optical_flow, quantization, segmentation, video
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/__init__.py", line 1, in <module>
+    from .faster_rcnn import *
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/faster_rcnn.py", line 16, in <module>
+    from .anchor_utils import AnchorGenerator
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 10, in <module>
+    class AnchorGenerator(nn.Module):
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 63, in AnchorGenerator
+    device: torch.device = torch.device("cpu"),
+/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py:63: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device("cpu"),
+
+Training on cuda
+Dataset: MNIST
+Model: lora, Rank: 1, Inject: mid
+Conditioning: edge
+Image size: 28x28, Channels: 1
+Conditioning channels: 1, Vector: False
+Total params: 3,039,489
+Trainable params: 3,039,489
+Parameter efficiency: 100.0%
+Epoch 1/5:   0%|                                                                                                                                  | 0/469 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/Controlled-Conditioning/train.py", line 601, in <module>
+    train(
+  File "/workspace/Controlled-Conditioning/train.py", line 275, in train
+    for batch in pbar:
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 678, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/Controlled-Conditioning/dataset.py", line 566, in __getitem__
+    img, label = self.mnist[idx]
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/mnist.py", line 142, in __getitem__
+    img = Image.fromarray(img.numpy(), mode="L")
+RuntimeError: Numpy is not available
+[2026-01-11 22:31:03] Completed: lora_rank1_mid_edge_mnist
+[2026-01-11 22:31:03] --- Rank 2 ---
+[2026-01-11 22:31:03] Starting: lora_rank2_mid_edge_mnist
+[2026-01-11 22:31:03] Arguments: --model_type lora --rank 2 --inject_layer mid --conditioning edge --dataset mnist --epochs 5 --batch_size 128 --lr 0.0001 --timesteps 1000
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/Controlled-Conditioning/train.py", line 7, in <module>
+    from dataset import (
+  File "/workspace/Controlled-Conditioning/dataset.py", line 2, in <module>
+    import torchvision
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/__init__.py", line 17, in <module>
+    from . import detection, optical_flow, quantization, segmentation, video
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/__init__.py", line 1, in <module>
+    from .faster_rcnn import *
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/faster_rcnn.py", line 16, in <module>
+    from .anchor_utils import AnchorGenerator
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 10, in <module>
+    class AnchorGenerator(nn.Module):
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 63, in AnchorGenerator
+    device: torch.device = torch.device("cpu"),
+/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py:63: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device("cpu"),
+
+Training on cuda
+Dataset: MNIST
+Model: lora, Rank: 2, Inject: mid
+Conditioning: edge
+Image size: 28x28, Channels: 1
+Conditioning channels: 1, Vector: False
+Total params: 3,039,745
+Trainable params: 3,039,745
+Parameter efficiency: 100.0%
+Epoch 1/5:   0%|                                                                                                                                  | 0/469 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/Controlled-Conditioning/train.py", line 601, in <module>
+    train(
+  File "/workspace/Controlled-Conditioning/train.py", line 275, in train
+    for batch in pbar:
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 678, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/Controlled-Conditioning/dataset.py", line 566, in __getitem__
+    img, label = self.mnist[idx]
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/mnist.py", line 142, in __getitem__
+    img = Image.fromarray(img.numpy(), mode="L")
+RuntimeError: Numpy is not available
+[2026-01-11 22:31:05] Completed: lora_rank2_mid_edge_mnist
+[2026-01-11 22:31:05] --- Rank 4 ---
+[2026-01-11 22:31:05] Starting: lora_rank4_mid_edge_mnist
+[2026-01-11 22:31:05] Arguments: --model_type lora --rank 4 --inject_layer mid --conditioning edge --dataset mnist --epochs 5 --batch_size 128 --lr 0.0001 --timesteps 1000
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/Controlled-Conditioning/train.py", line 7, in <module>
+    from dataset import (
+  File "/workspace/Controlled-Conditioning/dataset.py", line 2, in <module>
+    import torchvision
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/__init__.py", line 17, in <module>
+    from . import detection, optical_flow, quantization, segmentation, video
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/__init__.py", line 1, in <module>
+    from .faster_rcnn import *
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/faster_rcnn.py", line 16, in <module>
+    from .anchor_utils import AnchorGenerator
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 10, in <module>
+    class AnchorGenerator(nn.Module):
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 63, in AnchorGenerator
+    device: torch.device = torch.device("cpu"),
+/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py:63: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device("cpu"),
+
+Training on cuda
+Dataset: MNIST
+Model: lora, Rank: 4, Inject: mid
+Conditioning: edge
+Image size: 28x28, Channels: 1
+Conditioning channels: 1, Vector: False
+Total params: 3,040,257
+Trainable params: 3,040,257
+Parameter efficiency: 100.0%
+Epoch 1/5:   0%|                                                                                                                                  | 0/469 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/Controlled-Conditioning/train.py", line 601, in <module>
+    train(
+  File "/workspace/Controlled-Conditioning/train.py", line 275, in train
+    for batch in pbar:
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 678, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/Controlled-Conditioning/dataset.py", line 566, in __getitem__
+    img, label = self.mnist[idx]
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/mnist.py", line 142, in __getitem__
+    img = Image.fromarray(img.numpy(), mode="L")
+RuntimeError: Numpy is not available
+[2026-01-11 22:31:06] Completed: lora_rank4_mid_edge_mnist
+[2026-01-11 22:31:06] --- Rank 8 ---
+[2026-01-11 22:31:06] Starting: lora_rank8_mid_edge_mnist
+[2026-01-11 22:31:06] Arguments: --model_type lora --rank 8 --inject_layer mid --conditioning edge --dataset mnist --epochs 5 --batch_size 128 --lr 0.0001 --timesteps 1000
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/Controlled-Conditioning/train.py", line 7, in <module>
+    from dataset import (
+  File "/workspace/Controlled-Conditioning/dataset.py", line 2, in <module>
+    import torchvision
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/__init__.py", line 17, in <module>
+    from . import detection, optical_flow, quantization, segmentation, video
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/__init__.py", line 1, in <module>
+    from .faster_rcnn import *
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/faster_rcnn.py", line 16, in <module>
+    from .anchor_utils import AnchorGenerator
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 10, in <module>
+    class AnchorGenerator(nn.Module):
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py", line 63, in AnchorGenerator
+    device: torch.device = torch.device("cpu"),
+/usr/local/lib/python3.10/dist-packages/torchvision/models/detection/anchor_utils.py:63: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device("cpu"),
+
+Training on cuda
+Dataset: MNIST
+Model: lora, Rank: 8, Inject: mid
+Conditioning: edge
+Image size: 28x28, Channels: 1
+Conditioning channels: 1, Vector: False
+Total params: 3,041,281
+Trainable params: 3,041,281
+Parameter efficiency: 100.0%
+Epoch 1/5:   0%|                                                                                                                                  | 0/469 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/Controlled-Conditioning/train.py", line 601, in <module>
+    train(
+  File "/workspace/Controlled-Conditioning/train.py", line 275, in train
+    for batch in pbar:
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 678, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/Controlled-Conditioning/dataset.py", line 566, in __getitem__
+    img, label = self.mnist[idx]
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/mnist.py", line 142, in __getitem__
+    img = Image.fromarray(img.numpy(), mode="L")
+RuntimeError: Numpy is not available
+[2026-01-11 22:31:07] Completed: lora_rank8_mid_edge_mnist
+[2026-01-11 22:31:07] --- Rank 16 ---
+[2026-01-11 22:31:07] Starting: lora_rank16_mid_edge_mnist
+[2026-01-11 22:31:07] Arguments: --model_type lora --rank 16 --inject_layer mid --conditioning edge --dataset mnist --epochs 5 --batch_size 128 --lr 0.0001 --timesteps 1000
+^C
+root@34545a27caac:/works

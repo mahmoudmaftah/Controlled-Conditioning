@@ -115,7 +115,7 @@ log "CUDA available: $(python -c 'import torch; print(torch.cuda.is_available())
 
 if python -c 'import torch; assert torch.cuda.is_available()' 2>/dev/null; then
     log "CUDA device: $(python -c 'import torch; print(torch.cuda.get_device_name(0))')"
-    log "CUDA memory: $(python -c 'import torch; print(f\"{torch.cuda.get_device_properties(0).total_memory/1e9:.1f} GB\")')"
+    log "CUDA memory: $(python -c 'import torch; print(str(round(torch.cuda.get_device_properties(0).total_memory/1e9, 1)) + \" GB\")')"
 fi
 
 # ==============================================================================
@@ -128,6 +128,10 @@ log "========================================"
 
 # 1.1 Full Model Comparison (ControlNet vs LoRA vs Concat)
 log "--- 1.1 Full Model Comparison (Edge Conditioning) ---"
+
+# Unconditional baseline (no conditioning)
+run_training "baseline_mnist" \
+    "--model_type baseline --conditioning edge --dataset mnist --epochs $EPOCHS_FULL --batch_size $BATCH_SIZE --lr $LR --timesteps $TIMESTEPS"
 
 # ControlNet baseline
 run_training "controlnet_edge_mnist" \

@@ -4,7 +4,7 @@ torchvision>=0.15.0
 
 # Image processing
 opencv-python>=4.8.0
-numpy>=1.24.0
+numpy>=1.24.0,<2.0.0  # IMPORTANT: Must be <2.0 for compatibility with compiled modules
 scipy>=1.10.0
 Pillow>=9.5.0
 

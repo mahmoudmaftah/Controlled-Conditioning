@@ -70,6 +70,9 @@ log ""
 log "=== PHASE 1: Model Comparison (Parallel) ==="
 
 # Start all model comparisons in parallel
+run_bg "baseline_mnist" \
+    "--model_type baseline --conditioning edge --dataset mnist --epochs $EPOCHS_FULL --batch_size $BATCH_SIZE --lr $LR"
+
 run_bg "controlnet_edge" \
     "--model_type controlnet --conditioning edge --dataset mnist --epochs $EPOCHS_FULL --batch_size $BATCH_SIZE --lr $LR"
 
