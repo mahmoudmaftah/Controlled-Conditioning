@@ -1,4 +1,11 @@
-./visualizations/
+visualizations/
 
+
+data/
+checkpoints/
+
+.claude
+
+results/
 
 __pycache__/

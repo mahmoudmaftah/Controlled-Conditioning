@@ -1,0 +1,2 @@
+“We include edge conditioning as a diagnostic upper bound on conditioning strength.
+We then progressively weaken the conditioning signal to study how parameter-efficient adapters cope with ambiguity.”

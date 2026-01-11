@@ -1,0 +1,205 @@
+You are an expert machine learning engineer and researcher specializing in diffusion models and PyTorch.
+
+I want you to implement a modular experimental framework to study conditioning in diffusion models on MNIST, comparing:
+
+A baseline unconditional diffusion model
+
+A ControlNet-style conditioning mechanism
+
+A LoRA-based conditioning mechanism (parameter-efficient)
+
+The goal is to test the hypothesis that conditioning signals are low-rank relative to the denoiser, and therefore LoRA adapters are sufficient.
+
+Core requirements
+Dataset
+
+MNIST (28×28, grayscale)
+
+Normalize to [-1, 1]
+
+Train diffusion models from scratch
+
+Diffusion backbone
+
+Implement a small UNet-based DDPM
+
+No pretrained weights
+
+Architecture guidelines:
+
+Base channels: 32 or 64
+
+2–3 resolution levels
+
+GroupNorm + SiLU
+
+Time embedding via sinusoidal embedding + MLP
+
+This UNet learns the MNIST data distribution
+
+Conditioning signals (ALL must be implemented)
+
+Implement the following conditioning modes:
+
+1. Edge map conditioning
+
+Compute Sobel or Canny edges from MNIST images
+
+Conditioning tensor shape: (B, 1, 28, 28)
+
+2. Partial mask conditioning (inpainting)
+
+Randomly mask part of the digit (e.g. top half or random rectangle)
+
+Conditioning tensor includes:
+
+Masked image
+
+Binary mask
+
+3. Stroke thickness conditioning
+
+Estimate average stroke width using distance transform
+
+Conditioning is a scalar value per image
+
+4. Center / scale conditioning
+
+Compute:
+
+Center of mass (x, y)
+
+Approximate scale (bounding box area or std)
+
+Conditioning is a low-dimensional vector
+
+Conditioning interface (IMPORTANT)
+
+All conditioning must be converted into either:
+
+Image conditioning: (B, C, H, W)
+
+Vector conditioning: (B, D)
+
+Design the code so conditioning types are pluggable and share a unified interface.
+
+Conditioning mechanisms to compare
+A. Input concatenation baseline
+
+Concatenate image conditioning channels to input
+
+B. ControlNet-style conditioning
+
+Clone the UNet architecture
+
+Freeze the main UNet
+
+Train a conditioning UNet that injects residuals at multiple layers
+
+This ControlNet is MNIST-sized (not Stable Diffusion)
+
+C. LoRA-based conditioning (main method)
+
+Implement LoRA adapters for:
+
+Convolution layers
+
+Linear layers (time embeddings, FiLM)
+
+Conditioning modulates the UNet through LoRA adapters only
+
+Backbone weights are frozen
+
+LoRA parameters:
+
+Configurable rank r ∈ {1, 2, 4, 8, 16}
+
+Scaling α = r
+
+Experiments to support
+
+The code must support:
+
+Rank ablation for LoRA
+
+Layer ablation:
+
+Early layers only
+
+Mid-block only
+
+All layers
+
+Conditioning type ablation:
+
+Each conditioning signal tested independently
+
+Training
+
+DDPM objective (predict noise)
+
+Adam optimizer
+
+Reasonable defaults (e.g. 100k steps)
+
+Mixed precision optional
+
+Evaluation
+
+Implement:
+
+Sampling with fixed conditioning
+
+Visual grids comparing:
+
+Ground truth
+
+ControlNet output
+
+LoRA output
+
+Optional:
+
+MSE
+
+Edge alignment metric
+
+Code quality requirements
+
+PyTorch
+
+Clean modular design
+
+Clear class separation:
+
+UNet
+
+Diffusion process
+
+Conditioning encoders
+
+ControlNet module
+
+LoRA module
+
+Reproducible experiments
+
+Minimal external dependencies
+
+Deliverables
+
+Training script
+
+Sampling / visualization script
+
+Clear comments explaining design choices
+
+Do NOT assume pretrained models.
+Do NOT use Stable Diffusion.
+The entire system must run efficiently on MNIST.
+
+Focus on correctness, clarity, and research-readiness.
+
+End.
+
+🔹 END PROMPT 🔹
