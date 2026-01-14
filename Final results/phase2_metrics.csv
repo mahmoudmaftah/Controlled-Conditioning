@@ -1,0 +1,7 @@
+experiment,model_type,rank,layer,conditioning,dataset,epochs,final_loss,min_loss,best_epoch,initial_loss,improvement_pct,epochs_to_0.1,epochs_to_0.05,epochs_to_0.03,epochs_to_0.02,total_params,trainable_params,param_efficiency
+lora_rank4_mid_edge_svhn,lora,4,mid,edge,svhn,20,0.015684,0.015329,19,0.209242,92.5,2,3,5,8,3042563,3042563,100.0
+lora_rank8_mid_edge_mnist,lora,8,mid,edge,mnist,20,0.024277,0.024189,18,0.252859,90.4,3,6,10,N/A,3041281,3041281,100.0
+lora_rank4_mid_edge_mnist,lora,4,mid,edge,mnist,20,0.025023,0.025023,20,0.30331,91.75,2,5,12,N/A,3040257,3040257,100.0
+lora_rank16_mid_edge_mnist,lora,16,mid,edge,mnist,20,0.025633,0.02543,17,0.254635,89.93,2,5,11,N/A,3043329,3043329,100.0
+lora_rank1_mid_edge_mnist,lora,1,mid,edge,mnist,20,0.025668,0.025574,18,0.254481,89.91,3,7,11,N/A,3039489,3039489,100.0
+lora_rank2_mid_edge_mnist,lora,2,mid,edge,mnist,20,0.026594,0.026495,19,0.363478,92.68,3,7,12,N/A,3039745,3039745,100.0

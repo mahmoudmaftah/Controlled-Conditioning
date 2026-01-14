@@ -1,0 +1,162 @@
+{
+  "baseline_rank4_mid_edge_mnist": {
+    "best_epoch": 18,
+    "min_loss": 0.03023100211837534,
+    "final_checkpoint": "checkpoints/baseline_rank4_mid_edge_mnist_final.pt"
+  },
+  "concat_rank4_mid_edge_mnist": {
+    "best_epoch": 17,
+    "min_loss": 0.023841268714454213,
+    "final_checkpoint": "checkpoints/concat_rank4_mid_edge_mnist_final.pt"
+  },
+  "controlnet_rank4_mid_edge_mnist": {
+    "best_epoch": 18,
+    "min_loss": 0.020693432223998894,
+    "final_checkpoint": "checkpoints/controlnet_rank4_mid_edge_mnist_final.pt"
+  },
+  "controlnet_rank4_mid_edge_svhn": {
+    "best_epoch": 19,
+    "min_loss": 0.013637240468395047,
+    "final_checkpoint": "checkpoints/controlnet_rank4_mid_edge_svhn_final.pt"
+  },
+  "controlnet_rank4_mid_inpainting_digit_percentage50_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.013746590337763398,
+    "final_checkpoint": "checkpoints/controlnet_rank4_mid_inpainting_digit_percentage50_mnist_final.pt"
+  },
+  "lora_rank16_mid_edge_mnist": {
+    "best_epoch": 16,
+    "min_loss": 0.025429986827706887,
+    "final_checkpoint": "checkpoints/lora_rank16_mid_edge_mnist_final.pt"
+  },
+  "lora_rank1_mid_edge_mnist": {
+    "best_epoch": 17,
+    "min_loss": 0.0255743332712327,
+    "final_checkpoint": "checkpoints/lora_rank1_mid_edge_mnist_final.pt"
+  },
+  "lora_rank2_all_edge_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.025602652928081608,
+    "final_checkpoint": "checkpoints/lora_rank2_all_edge_mnist_final.pt"
+  },
+  "lora_rank2_early_edge_mnist": {
+    "best_epoch": 18,
+    "min_loss": 0.02407690409128949,
+    "final_checkpoint": "checkpoints/lora_rank2_early_edge_mnist_final.pt"
+  },
+  "lora_rank2_mid_edge_mnist": {
+    "best_epoch": 18,
+    "min_loss": 0.0264947529313928,
+    "final_checkpoint": "checkpoints/lora_rank2_mid_edge_mnist_final.pt"
+  },
+  "lora_rank4_all_edge_mnist": {
+    "best_epoch": 18,
+    "min_loss": 0.024487142151190064,
+    "final_checkpoint": "checkpoints/lora_rank4_all_edge_mnist_final.pt"
+  },
+  "lora_rank4_early_edge_mnist": {
+    "best_epoch": 18,
+    "min_loss": 0.024179948620119338,
+    "final_checkpoint": "checkpoints/lora_rank4_early_edge_mnist_final.pt"
+  },
+  "lora_rank4_mid_center_scale_mnist": {
+    "best_epoch": 18,
+    "min_loss": 0.029125939328539168,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_center_scale_mnist_final.pt"
+  },
+  "lora_rank4_mid_color_histogram_svhn": {
+    "best_epoch": 18,
+    "min_loss": 0.01687746170339071,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_color_histogram_svhn_final.pt"
+  },
+  "lora_rank4_mid_edge_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.02502300855466875,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_edge_mnist_final.pt"
+  },
+  "lora_rank4_mid_edge_svhn": {
+    "best_epoch": 18,
+    "min_loss": 0.015328910570436468,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_edge_svhn_final.pt"
+  },
+  "lora_rank4_mid_inpainting_digit_bottom50_mnist": {
+    "best_epoch": 17,
+    "min_loss": 0.023079853883739246,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_digit_bottom50_mnist_final.pt"
+  },
+  "lora_rank4_mid_inpainting_digit_contiguous50_mnist": {
+    "best_epoch": 17,
+    "min_loss": 0.021291400195430903,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_digit_contiguous50_mnist_final.pt"
+  },
+  "lora_rank4_mid_inpainting_digit_percentage20_mnist": {
+    "best_epoch": 16,
+    "min_loss": 0.02092219993345818,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_digit_percentage20_mnist_final.pt"
+  },
+  "lora_rank4_mid_inpainting_digit_percentage40_mnist": {
+    "best_epoch": 17,
+    "min_loss": 0.021911246323231923,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_digit_percentage40_mnist_final.pt"
+  },
+  "lora_rank4_mid_inpainting_digit_percentage50_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.02187393315262714,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_digit_percentage50_mnist_final.pt"
+  },
+  "lora_rank4_mid_inpainting_digit_percentage60_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.02155008403805353,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_digit_percentage60_mnist_final.pt"
+  },
+  "lora_rank4_mid_inpainting_digit_percentage80_mnist": {
+    "best_epoch": 18,
+    "min_loss": 0.021827624132067472,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_digit_percentage80_mnist_final.pt"
+  },
+  "lora_rank4_mid_inpainting_digit_top50_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.020336367284594956,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_digit_top50_mnist_final.pt"
+  },
+  "lora_rank4_mid_inpainting_random_rect50_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.026883395546573704,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_random_rect50_mnist_final.pt"
+  },
+  "lora_rank4_mid_inpainting_random_rect50_svhn": {
+    "best_epoch": 19,
+    "min_loss": 0.013771350851230737,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_inpainting_random_rect50_svhn_final.pt"
+  },
+  "lora_rank4_mid_skeleton_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.024186856792134753,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_skeleton_mnist_final.pt"
+  },
+  "lora_rank4_mid_sobel_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.022568146492970193,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_sobel_mnist_final.pt"
+  },
+  "lora_rank4_mid_stroke_thickness_mnist": {
+    "best_epoch": 17,
+    "min_loss": 0.02936419898296817,
+    "final_checkpoint": "checkpoints/lora_rank4_mid_stroke_thickness_mnist_final.pt"
+  },
+  "lora_rank8_all_edge_mnist": {
+    "best_epoch": 19,
+    "min_loss": 0.025029866940389247,
+    "final_checkpoint": "checkpoints/lora_rank8_all_edge_mnist_final.pt"
+  },
+  "lora_rank8_early_edge_mnist": {
+    "best_epoch": 18,
+    "min_loss": 0.02616688227123123,
+    "final_checkpoint": "checkpoints/lora_rank8_early_edge_mnist_final.pt"
+  },
+  "lora_rank8_mid_edge_mnist": {
+    "best_epoch": 17,
+    "min_loss": 0.024189172186336275,
+    "final_checkpoint": "checkpoints/lora_rank8_mid_edge_mnist_final.pt"
+  }
+}

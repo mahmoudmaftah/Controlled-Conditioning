@@ -1,0 +1,5 @@
+experiment,model_type,rank,layer,conditioning,dataset,epochs,final_loss,min_loss,best_epoch,initial_loss,improvement_pct,epochs_to_0.1,epochs_to_0.05,epochs_to_0.03,epochs_to_0.02,total_params,trainable_params,param_efficiency
+controlnet_rank4_mid_edge_svhn,controlnet,4,mid,edge,svhn,20,0.013637,0.013637,20,0.188319,92.76,2,3,4,6,4753987,4753987,100.0
+lora_rank4_mid_inpainting_random_rect50_svhn,lora,4,mid,inpainting,svhn,20,0.013771,0.013771,20,0.179125,92.31,2,2,4,6,3043427,3043427,100.0
+lora_rank4_mid_edge_svhn,lora,4,mid,edge,svhn,20,0.015684,0.015329,19,0.209242,92.5,2,3,5,8,3042563,3042563,100.0
+lora_rank4_mid_color_histogram_svhn,lora,4,mid,color_histogram,svhn,20,0.017233,0.016877,19,0.183292,90.6,2,3,4,9,7296515,7296515,100.0

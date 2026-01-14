@@ -1,0 +1,12 @@
+experiment,model_type,rank,layer,conditioning,dataset,epochs,final_loss,min_loss,best_epoch,initial_loss,improvement_pct,epochs_to_0.1,epochs_to_0.05,epochs_to_0.03,epochs_to_0.02,total_params,trainable_params,param_efficiency
+controlnet_rank4_mid_inpainting_digit_percentage50_mnist,controlnet,4,mid,inpainting,mnist,20,0.013747,0.013747,20,0.296346,95.36,2,4,5,9,4752257,4752257,100.0
+lora_rank4_mid_inpainting_random_rect50_svhn,lora,4,mid,inpainting,svhn,20,0.013771,0.013771,20,0.179125,92.31,2,2,4,6,3043427,3043427,100.0
+lora_rank4_mid_inpainting_digit_top50_mnist,lora,4,mid,inpainting,mnist,20,0.020336,0.020336,20,0.313836,93.52,3,6,9,N/A,3040545,3040545,100.0
+lora_rank4_mid_inpainting_digit_percentage20_mnist,lora,4,mid,inpainting,mnist,20,0.021163,0.020922,17,0.234404,90.97,3,6,10,N/A,3040545,3040545,100.0
+lora_rank4_mid_inpainting_digit_contiguous50_mnist,lora,4,mid,inpainting,mnist,20,0.021429,0.021291,18,0.280379,92.36,2,5,9,N/A,3040545,3040545,100.0
+lora_rank4_mid_inpainting_digit_percentage60_mnist,lora,4,mid,inpainting,mnist,20,0.02155,0.02155,20,0.270909,92.05,2,5,8,N/A,3040545,3040545,100.0
+lora_rank4_mid_inpainting_digit_percentage50_mnist,lora,4,mid,inpainting,mnist,20,0.021874,0.021874,20,0.285441,92.34,3,5,9,N/A,3040545,3040545,100.0
+lora_rank4_mid_inpainting_digit_percentage80_mnist,lora,4,mid,inpainting,mnist,20,0.022217,0.021828,19,0.324203,93.15,3,5,9,N/A,3040545,3040545,100.0
+lora_rank4_mid_inpainting_digit_percentage40_mnist,lora,4,mid,inpainting,mnist,20,0.022367,0.021911,18,0.298762,92.51,2,5,9,N/A,3040545,3040545,100.0
+lora_rank4_mid_inpainting_digit_bottom50_mnist,lora,4,mid,inpainting,mnist,20,0.023379,0.02308,18,0.284962,91.8,2,5,10,N/A,3040545,3040545,100.0
+lora_rank4_mid_inpainting_random_rect50_mnist,lora,4,mid,inpainting,mnist,20,0.026883,0.026883,20,0.27899,90.36,3,6,12,N/A,3040545,3040545,100.0

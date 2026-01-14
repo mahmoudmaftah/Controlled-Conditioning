@@ -1,0 +1,5 @@
+model_type,final_loss,min_loss,trainable_params,param_efficiency_pct,epochs_to_0.05
+controlnet,0.020918,0.020693,4751681,100.0,5
+concat,0.024133,0.023841,2947137,100.0,4
+lora,0.025023,0.025023,3040257,100.0,5
+baseline,0.030251,0.030231,2946561,100.0,7

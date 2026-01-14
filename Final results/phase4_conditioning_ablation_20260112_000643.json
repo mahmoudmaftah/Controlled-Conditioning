@@ -1,0 +1,9 @@
+{
+    "experiment": "phase4_conditioning_ablation",
+    "timestamp": "20260112_000643",
+    "epochs_fast": 20,
+    "epochs_full": 20,
+    "batch_size": 1024,
+    "timesteps": 1000,
+    "learning_rate": 0.0001
+}

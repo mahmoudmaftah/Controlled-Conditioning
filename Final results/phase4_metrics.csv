@@ -1,0 +1,17 @@
+experiment,model_type,rank,layer,conditioning,dataset,epochs,final_loss,min_loss,best_epoch,initial_loss,improvement_pct,epochs_to_0.1,epochs_to_0.05,epochs_to_0.03,epochs_to_0.02,total_params,trainable_params,param_efficiency
+lora_rank4_mid_edge_svhn,lora,4,mid,edge,svhn,20,0.015684,0.015329,19,0.209242,92.5,2,3,5,8,3042563,3042563,100.0
+lora_rank4_mid_sobel_mnist,lora,4,mid,sobel,mnist,20,0.022568,0.022568,20,0.226118,90.02,2,4,9,N/A,3040257,3040257,100.0
+lora_rank4_mid_skeleton_mnist,lora,4,mid,skeleton,mnist,20,0.024187,0.024187,20,0.295073,91.8,3,6,10,N/A,3040257,3040257,100.0
+lora_rank2_early_edge_mnist,lora,2,early,edge,mnist,20,0.024241,0.024077,19,0.294679,91.77,3,5,10,N/A,3043649,3043649,100.0
+lora_rank8_mid_edge_mnist,lora,8,mid,edge,mnist,20,0.024277,0.024189,18,0.252859,90.4,3,6,10,N/A,3041281,3041281,100.0
+lora_rank4_all_edge_mnist,lora,4,all,edge,mnist,20,0.024592,0.024487,19,0.263218,90.66,3,5,11,N/A,3045953,3045953,100.0
+lora_rank4_early_edge_mnist,lora,4,early,edge,mnist,20,0.02462,0.02418,19,0.247971,90.07,2,5,10,N/A,3043905,3043905,100.0
+lora_rank4_mid_edge_mnist,lora,4,mid,edge,mnist,20,0.025023,0.025023,20,0.30331,91.75,2,5,12,N/A,3040257,3040257,100.0
+lora_rank8_all_edge_mnist,lora,8,all,edge,mnist,20,0.02503,0.02503,20,0.300515,91.67,3,5,11,N/A,3048513,3048513,100.0
+lora_rank2_all_edge_mnist,lora,2,all,edge,mnist,20,0.025603,0.025603,20,0.274789,90.68,2,5,11,N/A,3044673,3044673,100.0
+lora_rank16_mid_edge_mnist,lora,16,mid,edge,mnist,20,0.025633,0.02543,17,0.254635,89.93,2,5,11,N/A,3043329,3043329,100.0
+lora_rank1_mid_edge_mnist,lora,1,mid,edge,mnist,20,0.025668,0.025574,18,0.254481,89.91,3,7,11,N/A,3039489,3039489,100.0
+lora_rank8_early_edge_mnist,lora,8,early,edge,mnist,20,0.026185,0.026167,19,0.235408,88.88,2,7,13,N/A,3044417,3044417,100.0
+lora_rank2_mid_edge_mnist,lora,2,mid,edge,mnist,20,0.026594,0.026495,19,0.363478,92.68,3,7,12,N/A,3039745,3039745,100.0
+lora_rank4_mid_center_scale_mnist,lora,4,mid,center_scale,mnist,20,0.029295,0.029126,19,0.248957,88.23,2,5,15,N/A,3765249,3765249,100.0
+lora_rank4_mid_stroke_thickness_mnist,lora,4,mid,stroke_thickness,mnist,20,0.029994,0.029364,18,0.262071,88.55,2,5,17,N/A,3765121,3765121,100.0

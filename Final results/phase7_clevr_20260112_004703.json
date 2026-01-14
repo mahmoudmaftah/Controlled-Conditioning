@@ -1,0 +1,9 @@
+{
+    "experiment": "phase7_clevr",
+    "timestamp": "20260112_004703",
+    "epochs_fast": 20,
+    "epochs_full": 20,
+    "batch_size": 1024,
+    "timesteps": 1000,
+    "learning_rate": 0.0001
+}

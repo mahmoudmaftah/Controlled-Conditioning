@@ -1,0 +1,53 @@
+% Phase 1: Model Comparison
+\begin{table}[h]
+\centering
+\caption{Model Comparison on MNIST Edge Conditioning}
+\begin{tabular}{lccccc}
+\hline
+Model & Final Loss & Min Loss & Params & Efficiency & Epochs to 0.05 \\
+\hline
+Controlnet & 0.02092 & 0.02069 & 4.75M & 100.0\% & 5 \\
+Concat & 0.02413 & 0.02384 & 2.95M & 100.0\% & 4 \\
+Lora & 0.02502 & 0.02502 & 3.04M & 100.0\% & 5 \\
+Baseline & 0.03025 & 0.03023 & 2.95M & 100.0\% & 7 \\
+\hline
+\end{tabular}
+\end{table}
+
+% Phase 2: LoRA Rank Ablation
+\begin{table}[h]
+\centering
+\caption{LoRA Rank Ablation Study}
+\begin{tabular}{lccccc}
+\hline
+Rank & Final Loss & Min Loss & Params & Epochs to 0.05 & Epochs to 0.03 \\
+\hline
+r=1 & 0.02567 & 0.02557 & 3.04M & 7 & 11 \\
+r=2 & 0.02659 & 0.02650 & 3.04M & 7 & 12 \\
+r=4 & 0.02502 & 0.02502 & 3.04M & 5 & 12 \\
+r=8 & 0.02428 & 0.02419 & 3.04M & 6 & 10 \\
+r=16 & 0.02563 & 0.02543 & 3.04M & 5 & 11 \\
+\hline
+\end{tabular}
+\end{table}
+
+% Phase 3: Layer Ablation
+\begin{table}[h]
+\centering
+\caption{LoRA Layer Injection Ablation}
+\begin{tabular}{llccc}
+\hline
+Rank & Layer & Final Loss & Min Loss & Epochs to 0.05 \\
+\hline
+r=2 & All & 0.02560 & 0.02560 & 5 \\
+r=2 & Early & 0.02424 & 0.02408 & 5 \\
+r=2 & Mid & 0.02659 & 0.02650 & 7 \\
+r=4 & All & 0.02459 & 0.02449 & 5 \\
+r=4 & Early & 0.02462 & 0.02418 & 5 \\
+r=4 & Mid & 0.02502 & 0.02502 & 5 \\
+r=8 & All & 0.02503 & 0.02503 & 5 \\
+r=8 & Early & 0.02618 & 0.02617 & 7 \\
+r=8 & Mid & 0.02428 & 0.02419 & 6 \\
+\hline
+\end{tabular}
+\end{table}
